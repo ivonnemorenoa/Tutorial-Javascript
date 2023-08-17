@@ -265,3 +265,43 @@ imprimirPropiedades(persona);
 // edad: 30
 // ocupacion: programador
 ```
+#### Ejercicio de palindromos
+**Con un ciclo**
+```
+function esPalindromo(cadena) {
+  const cleanedCadena = cadena.replace(/\s/g, '').toLowerCase();
+  const longitud = cleanedCadena.length;
+
+  for (let i = 0; i < longitud / 2; i++) {
+    if (cleanedCadena[i] !== cleanedCadena[longitud - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+const palabraOfrase = prompt("Ingrese una palabra o frase:");
+if (esPalindromo(palabraOfrase)) {
+  console.log("Es un palíndromo.");
+} else {
+  console.log("No es un palíndromo.");
+}
+```
+
+**sin el ciclo con una funcion y condicional**
+```
+function verificarPalindromo(cadena) {
+  const cleanedCadena = cadena.replace(/\s/g, '').toLowerCase();
+  const reversedCadena = cleanedCadena.split('').reverse().join('');
+
+  if (cleanedCadena === reversedCadena) {
+    return "Es un palíndromo.";
+  } else {
+    return "No es un palíndromo.";
+  }
+}
+
+const palabraOfrase = prompt("Ingrese una palabra o frase:");
+const resultado = verificarPalindromo(palabraOfrase);
+console.log(resultado);
+```
